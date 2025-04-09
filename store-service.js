@@ -1,14 +1,16 @@
 const Sequelize = require('sequelize');
 
 // Initialize Sequelize with your Neon.tech credentials
-const sequelize = new Sequelize('neondb', 'neondb_owner', 'npg_hFtk4deZq9IU', {
-    host: 'ep-falling-dream-a5jg4e56-pooler.us-east-2.aws.neon.tech',
-    dialect: 'postgres',
-    port: 5432,
-    dialectOptions: {
-        ssl: { rejectUnauthorized: false }
-    },
-    query: { raw: true }
+const sequelize = new Sequelize(process.env.PG_DATABASE, process.env.PG_USER, process.env.PG_PASSWORD, {
+  host: process.env.PG_HOST,
+  dialect: 'postgres',
+  port: process.env.PG_PORT,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
 });
 
 // Define Models
