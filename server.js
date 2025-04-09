@@ -4,7 +4,7 @@
 //Purpose: Assignment 4
 //class: web322 NII
 
-
+require('pg');
 const express = require('express');
 const path = require('path');
 const storeService = require('./store-service');
@@ -49,7 +49,6 @@ const hbs = expHBS.create({
 
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
-app.require('pg');
 
 // Cloudinary configuration
 cloudinary.config({
