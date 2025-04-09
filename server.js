@@ -4,7 +4,7 @@
 //Purpose: Assignment 4
 //class: web322 NII
 
-require('PG');
+require('pg');
 const express = require('express');
 const path = require('path');
 const storeService = require('./store-service');
