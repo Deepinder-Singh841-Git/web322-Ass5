@@ -5,19 +5,39 @@
       "src": "server.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["data/**", "public/**", "views/**"]
+        "includeFiles": [
+          "views/**",
+          "public/**",
+          "store-service.js",
+          "package.json",
+          "package-lock.json"
+        ]
       }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "server.js"
+      "dest": "server.js",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
     }
   ],
   "env": {
-    "CLOUD_NAME": "dfst9j74g",
-    "API_KEY": "332178947425628",
-    "API_SECRET": "y7M6d7_J5Feh4jbgowjFyOT4pw8"
-  }
+    "PORT": "8080",
+    "CLOUDINARY_NAME": "dfst9j74g",
+    "CLOUDINARY_KEY": "332178947425628",
+    "CLOUDINARY_SECRET": "y7M6d7_J5Feh4jbgowjFyOT4pw8",
+    "DB_NAME": "neondb",
+    "DB_USER": "neondb_owner",
+    "DB_PASSWORD": "npg_hFtk4deZq9IU",
+    "DB_HOST": "ep-falling-dream-a5jg4e56-pooler.us-east-2.aws.neon.tech",
+    "DB_PORT": "5432",
+    "DB_SSL": "true"
+  },
+  "rewrites": [
+    {
+      "source": "/public/(.*)",
+      "destination": "/public/$1"
+    }
+  ]
 }
