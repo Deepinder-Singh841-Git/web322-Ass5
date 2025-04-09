@@ -15,11 +15,14 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "server.js",
-      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
+      "source": "/(.*)",
+      "destination": "/server.js"
+    },
+    {
+      "source": "/public/(.*)",
+      "destination": "/public/$1"
     }
   ],
   "env": {
@@ -33,11 +36,5 @@
     "DB_HOST": "ep-falling-dream-a5jg4e56-pooler.us-east-2.aws.neon.tech",
     "DB_PORT": "5432",
     "DB_SSL": "true"
-  },
-  "rewrites": [
-    {
-      "source": "/public/(.*)",
-      "destination": "/public/$1"
-    }
-  ]
+  }
 }
