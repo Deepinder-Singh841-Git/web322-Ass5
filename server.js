@@ -13,7 +13,6 @@ const expHBS = require('express-handlebars');
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 const Handlebars = require('handlebars');
-const pg = require('pg');
 
 const app = express();
 const HTTP_PORT = process.env.PORT || 8080;
@@ -50,6 +49,7 @@ const hbs = expHBS.create({
 
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
+app.require('pg');
 
 // Cloudinary configuration
 cloudinary.config({
